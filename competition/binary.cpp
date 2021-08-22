@@ -9,7 +9,7 @@ int main()
     cin >> t;
 
     for (int i = 0; i < t; i++) {
-         int n = 0;
+        int n = 0;
         cin >> n;
 
         int result = 0;
