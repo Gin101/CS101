@@ -33,6 +33,7 @@ int ope(int y, int m) {
 }
 int main()
 {
+
     m[0] = 1;
     d[0] = 1;
     

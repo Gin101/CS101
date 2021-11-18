@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "mutex": "cpp",
+        "ostream": "cpp"
     }
 }
