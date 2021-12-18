@@ -1,9 +1,9 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
-const int maxN = 1000;
+const int maxN = 1001;
 int kmp[maxN] = {0};
 
 int main() 
@@ -18,14 +18,14 @@ int main()
 
         string t;
         cin >> t;
-
+        
         int idx = 0;
-        for (int i = 0; i < t.size(); i ++) {
-            while (idx && t[idx + 1] != t[i]) {
-                idx = kmp[idx];
+        for (int i = 1; i < t.size(); i++) {
+            while (idx && t[idx] != t[i]) {
+                idx = kmp[idx - 1];
             }
 
-            if (t[idx + 1] == t[i]) {
+            if (t[idx] == t[i]) {
                 idx++;
             }
 
@@ -35,12 +35,13 @@ int main()
         idx = 0;
         int result = 0;
         for (int i = 0; i < s.size(); i++) {
-            while (idx && t[idx + 1] != s[i]) {
-                idx = kmp[idx];
+            while (idx && t[idx] != s[i]) {
+                idx = kmp[idx - 1];
             }
 
-            if (s[i] == t[idx + 1])
-                idx++ ;
+            if (t[idx] == s[i]) {
+                idx++;
+            }
 
             if (idx == t.size()) {
                 result++;
@@ -48,7 +49,7 @@ int main()
             }
         }
 
-        cout << result << endl;
+        printf("%d\n", result);
     }
 
     return 0;
