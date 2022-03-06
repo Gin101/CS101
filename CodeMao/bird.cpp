@@ -58,14 +58,6 @@ int main()
         }
     }
 
-    // for (int i = 1; i <= m; i++) {
-    //     for (int j = 1; j <= n; j++) {
-    //         cout << dp[i][j] << ' ';
-    //     }
-    //     cout << endl;
-    // }
-    // return 0;
-
     int result = INT_MAX;
     for (int i = 1; i <= n; i++) {
         if (dp[m][n] != -1) {
