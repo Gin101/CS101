@@ -45,6 +45,7 @@ int main()
     }
 
 	result2.num[0][0] = 1;
+
     int idx = 0;
 	for (int i = 1; i <= 7; i++) {
 		if (!w[i]) {

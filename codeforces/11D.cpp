@@ -26,6 +26,7 @@ int main()
         dp[1 << i][i] = 1;
     }
 
+
     long long result = 0;
     for (int i = 1; i <= (1 << n); i++) {
         for (int j = 0; j < n; j++) {

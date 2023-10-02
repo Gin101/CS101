@@ -67,6 +67,10 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "unordered_map": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "variant": "cpp",
+        "span": "cpp"
     }
 }

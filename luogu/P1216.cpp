@@ -1,28 +1,30 @@
-/*
-题目描述
-观察下面的数字金字塔。
-
-写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。
-
-        7 
-      3   8 
-    8   1   0 
-  2   7   4   4 
-4   5   2   6   5 
-在上面的样例中,从7→3→8→7→5 的路径产生了最大
-*/
-
 #include <iostream>
+#include <stdio.h>
+#include <algorithm>
 
 using namespace std;
 
-
+const int maxR = 1000;
+int number[maxR][maxR] = {{0}};
 
 int main()
 {
-    int n = 0;
-    cin >> n;
+    int r = 0;
+    cin >> r;
 
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j <= i; j++) {
+            cin >> number[i][j];
+        }
+    }
+
+    for (int i = r - 2; i >= 0; i--) {
+        for (int j = 0; j <= i; j++) {
+            number[i][j] += max(number[i + 1][j], number[i + 1][j + 1]); 
+        }
+    }
+
+    cout << number[0][0] << endl;
 
 
     return 0;

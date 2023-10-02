@@ -7,14 +7,18 @@ O(n + m)
 
 #include <iostream>
 #include <algorithm>
-#include <vector>;
+#include <vector>
+#include <queue>
 
 using namespace std;
 
 const int maxN = 1e5;
-const int maxM = 1e6;
+const int INF = 0x3f3f3f3f;
 int num[maxN] = {0};
+int in[maxN] = {0};
+int out[maxN] = {0};
 int dp[maxN] = {0};
+queue<int> q;
 struct Node {
     int next = 0;
     int val = 0;
@@ -35,6 +39,38 @@ int main()
         int u = 0;
         int v = 0;
         cin >> u >> v;
+        
+        in[v - 1]++;
+        out[u - 1]++;
+        e[u - 1].push_back(Node{v - 1, num[v - 1]});
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (in[i] == 0) {
+            dp[i] = num[i];
+        } else {
+            dp[i] = -INF;
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (in[i] == 0) {
+            in[i] = -1;
+            q.push(i);
+            dp[i] = 1;
+        }
+    }
+
+    while (!q.empty()) {
+        for (int i = 0; i < e[q.front()].size(); i++) {
+            dp[e[q.front()][i].next] = dp[q.front()] + 1;
+            in[e[q.front()][i].next]--;
+            if (in[e[q.front()][i].next] == 0) {
+                q.push(e[q.front()][i].next);
+            }
+        }
+
+        q.pop();
     }
 
 
